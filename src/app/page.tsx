@@ -1,95 +1,82 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { Image, Box, Button, Flex, Heading, Spacer, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <Flex 
+      minHeight='100vh' 
+      width='100vw' 
+      overflow='hidden' 
+      p={['1rem 1.2rem', '1.5rem 3rem', '2.5rem 5rem']} 
+      gap='10' 
+      backgroundImage="url('/bg/best-yield-bg.png')" 
+      backgroundSize='cover' 
+      direction='column'>
+
+        <Flex alignItems='center' gap='2' mb='2'>
+          <Box p='2'>
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              src="/logos/idle-institutional.svg"
+              alt="Idle Institutional"
+              width={250}
+              height={50}
             />
-          </a>
-        </div>
-      </div>
+          </Box>
+          <Spacer />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <Button as='a' href='https://discord.com/invite/mpySAJp' target='_blank' size='lg'>
+            Contact Us
+          </Button>
+        </Flex>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <Flex flex="1" justifyContent='start' alignItems='center'>
+          <Stack spacing={6} alignItems='start'>
+            <Heading as='h1' size='4xl'>
+              Institutional credit, <br /> onchain.
+            </Heading>
+            <Text fontSize='x-large'>
+              Modernizing credit markets to bring speed, programmability,<br /> and compliance advantages of blockchain tokenization.
+            </Text>
+            <Button size='xl'>
+              Early access
+            </Button>
+          </Stack>
+        </Flex>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <Box>
+          <Text fontSize='small'>
+            Trusted by
+          </Text>
+          <Wrap spacing={10} align='center'>
+            <WrapItem>
+              <Image
+                src="/logos/rockaway.svg"
+                alt="Rockaway"
+                height='50px'
+              />
+            </WrapItem>
+            <WrapItem>
+              <Image
+                src="/logos/fasanara.svg"
+                alt="Fasanara"
+                height='50px'
+              />
+            </WrapItem>
+            <WrapItem>
+              <Image
+                src="/logos/maven.svg"
+                alt="Maven"
+                height='100px'
+              />
+            </WrapItem>
+            <WrapItem>
+              <Image
+                src="/logos/bastion.svg"
+                alt="Bastion"
+                height='100px'
+              />
+            </WrapItem>
+          </Wrap>
+        </Box>
+      </Flex>
   );
 }
