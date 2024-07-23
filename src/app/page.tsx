@@ -31,7 +31,7 @@ export default function Home() {
         <Flex flex="1" justifyContent='start' alignItems='center'>
           <Stack spacing={6} alignItems='start'>
             <Heading as='h1' size='4xl'>
-              Institutional credit, <br /> onchain.
+              Institutional credit, <br /> on-chain.
             </Heading>
             <Text fontSize='x-large'>
               Modernizing credit markets to bring speed, programmability,<br /> and compliance advantages of blockchain tokenization.
