@@ -1,17 +1,19 @@
+'use client'
+
 import { Image, Box, Button, Flex, Heading, Spacer, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import Lottie from "lottie-react";
+import bg from "../../public/json/bg.json";
 
 export default function Home() {
   return (
-    <Flex 
+    <Box position='relative' overflow='hidden'>
+      <Flex 
       minHeight='100vh' 
       width='100vw' 
       overflow='hidden' 
       p={['1rem 1.2rem', '1.5rem 3rem', '2.5rem 5rem']} 
       gap='10' 
-      backgroundImage="url('/bg/best-yield-bg.png')" 
-      backgroundSize='cover' 
       direction='column'>
-
         <Flex alignItems='center' gap='2' mb='2'>
           <Box p='2'>
             <Image
@@ -68,15 +70,20 @@ export default function Home() {
                 height='100px'
               />
             </WrapItem>
-            <WrapItem>
+            {/* <WrapItem>
               <Image
                 src="/logos/bastion.svg"
                 alt="Bastion"
                 height='100px'
               />
-            </WrapItem>
+            </WrapItem> */}
           </Wrap>
         </Box>
       </Flex>
+
+      <Box position='absolute' zIndex='-1' top='0' left='0' right='0' bottom='0'>
+        <Lottie animationData={bg} loop={true} className="full-bg" />
+      </Box>
+    </Box>
   );
 }
