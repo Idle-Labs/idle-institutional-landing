@@ -1,3 +1,5 @@
+'use client'
+
 import { Open_Sans, Source_Sans_3 } from 'next/font/google'
 
 export const openSans = Open_Sans({
@@ -9,4 +11,5 @@ export const openSans = Open_Sans({
 
 export const sourceSans = Source_Sans_3({
   subsets: ['latin'],
+  display: 'swap',
 })
