@@ -1,34 +1,35 @@
 import { extendTheme } from "@chakra-ui/react";
+import { openSans, sourceSans } from "./fonts";
 
 export const theme = extendTheme({
   config: {
-    initialColorMode: "dark",
+    initialColorMode: 'dark',
     useSystemColorMode: false,
   },
   fonts: {
-    heading: `'Open Sans', sans-serif`,
-    body: `"Source Sans Pro", sans-serif`,
+    heading: openSans.style.fontFamily,
+    body: sourceSans.style.fontFamily,
   },
   colors: {
-    white: "#FFFFFF",
-    dark: "#1B1E27",
+    white: '#FFFFFF',
+    dark: '#1B1E27',
   },
   styles: {
     global: {
       body: {
-        bg: "dark",
-        color: "white",
+        bg: 'dark',
+        color: 'white',
       },
       a: {
         _hover: {
-          textDecoration: "none",
+          textDecoration: 'none',
         },
       },
     },
   },
   textStyles: {
     base: {
-      fontSize: "sm",
+      fontSize: 'sm',
       fontWeight: 500,
     },
   },
@@ -36,10 +37,11 @@ export const theme = extendTheme({
     Button: {
       sizes: {
         xl: {
-          fontSize: '1.5rem',
-          padding: '1rem 1.5rem'
-        }
-      }
-    }
-  }
-});
+          fontSize: '1.4rem',
+          fontWeight: 'bold',
+          padding: '1rem 1.5rem',
+        },
+      },
+    },
+  },
+})

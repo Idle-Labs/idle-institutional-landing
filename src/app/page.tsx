@@ -29,11 +29,11 @@ export default function Home() {
         </Flex>
 
         <Flex flex="1" justifyContent='start' alignItems='center'>
-          <Stack spacing={6} alignItems='start'>
-            <Heading as='h1' size='4xl'>
+          <Stack spacing={10} alignItems='start'>
+            <Heading as='h1' m='0' size='4xl' fontWeight='600'>
               Institutional credit, <br /> on-chain.
             </Heading>
-            <Text fontSize='x-large'>
+            <Text fontSize='x-large' fontWeight='500'>
               Modernizing credit markets to bring speed, programmability,<br /> and compliance advantages of blockchain tokenization.
             </Text>
             <Button size='xl'>
