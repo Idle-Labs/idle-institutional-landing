@@ -1,5 +1,3 @@
-'use client'
-
 import { extendTheme } from "@chakra-ui/react";
 import { openSans, sourceSans } from "./fonts";
 
@@ -15,6 +13,10 @@ export const theme = extendTheme({
   colors: {
     white: '#FFFFFF',
     dark: '#1B1E27',
+    bgWhite: {
+      backgroundColor: 'white',
+      color: 'dark'
+    }
   },
   styles: {
     global: {
@@ -37,8 +39,17 @@ export const theme = extendTheme({
   },
   components: {
     Button: {
-      baseStyle: {
-        backgroundColor: 'white'
+      variants: {
+        neutral: {
+          bg: 'white',
+          color: 'gray.800',
+          _hover: {
+            bg: 'gray.200',
+          },
+        }
+      },
+      defaultProps: {
+        variant: 'neutral'
       },
       sizes: {
         xl: {
