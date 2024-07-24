@@ -54,7 +54,7 @@ export const theme = extendTheme({
       sizes: {
         xl: {
           fontSize: '1.4rem',
-          fontWeight: 'bold',
+          fontWeight: 600,
           padding: '1rem 1.5rem',
         },
       },
