@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "echo 'institutional.idle.finance\nwww.institutional.idle.finance' > dist/CNAME;gh-pages -b gh-pages -d dist --remote origin"
+    "deploy": "touch ./dist/.nojekyll && echo 'institutional.idle.finance\nwww.institutional.idle.finance' > dist/CNAME;gh-pages -b gh-pages -d dist --remote origin"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",

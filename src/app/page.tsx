@@ -1,6 +1,6 @@
 'use client'
 
-import { Image, Box, Button, Flex, Heading, Spacer, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import { Image, Box, Button, Flex, Heading, Spacer, Stack, Text, Wrap, WrapItem, Link } from "@chakra-ui/react";
 import Lottie from "lottie-react";
 import bg from "../../public/json/bg.json";
 
@@ -16,12 +16,14 @@ export default function Home() {
       direction='column'>
         <Flex alignItems='center' gap='2' mb='2'>
           <Box p='2'>
-            <Image
-              src="/logos/idle-institutional.svg"
-              alt="Idle Institutional"
-              width={250}
-              height={50}
-            />
+            <Link href="https://idle.finance/" target="_blank">
+              <Image
+                src="/logos/idle-institutional.svg"
+                alt="Idle Institutional"
+                width={250}
+                height={50}
+              />
+            </Link>
           </Box>
           <Spacer />
 
@@ -32,10 +34,10 @@ export default function Home() {
 
         <Flex flex="1" justifyContent='start' alignItems='center'>
           <Stack spacing={10} alignItems='start'>
-            <Heading as='h1' m='0' size='4xl' fontWeight='600'>
+            <Heading as='h1' m='0' size={['3xl', '4xl']} fontWeight='600'>
               Institutional credit, <br /> on-chain.
             </Heading>
-            <Text fontSize='x-large' fontWeight='500'>
+            <Text fontSize={['large', 'x-large']} fontWeight='500'>
               Modernizing credit markets to bring speed, programmability,<br /> and compliance advantages of blockchain tokenization.
             </Text>
             <Button size='xl'>
@@ -53,21 +55,21 @@ export default function Home() {
               <Image
                 src="/logos/rockaway.svg"
                 alt="Rockaway"
-                height='50px'
+                height={['25px', '30px', '50px']}
               />
             </WrapItem>
             <WrapItem>
               <Image
                 src="/logos/fasanara.svg"
                 alt="Fasanara"
-                height='50px'
+                height={['25px', '30px', '50px']}
               />
             </WrapItem>
             <WrapItem>
               <Image
                 src="/logos/maven.svg"
                 alt="Maven"
-                height='100px'
+                height={['50px', '60px', '100px']}
               />
             </WrapItem>
             {/* <WrapItem>

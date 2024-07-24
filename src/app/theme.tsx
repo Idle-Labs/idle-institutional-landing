@@ -37,6 +37,9 @@ export const theme = extendTheme({
   },
   components: {
     Button: {
+      baseStyle: {
+        backgroundColor: 'white'
+      },
       sizes: {
         xl: {
           fontSize: '1.4rem',
