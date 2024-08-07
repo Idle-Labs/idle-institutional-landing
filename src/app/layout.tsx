@@ -19,6 +19,9 @@ export const metadata: Metadata = {
       {
         url: '/logos/idle-og.png',
       },
+      {
+        url: '/logos/idle-full-og.png',
+      },
     ],
   },
 }

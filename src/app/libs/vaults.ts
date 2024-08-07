@@ -38,7 +38,7 @@ export const VAULTS: Vault[] = [
  */
 export function getVaultUrl(code: string, key: string): string | undefined {
   const vault = VAULTS.find((v) => v.codes.find((c) => compare(code, c, key)))
-  return vault ? parseVaultUrl(vault, key) : undefined
+  return vault ? parseVaultUrl(vault, code) : undefined
 }
 
 /**
@@ -48,5 +48,5 @@ export function getVaultUrl(code: string, key: string): string | undefined {
  * @returns the url of the vault
  */
 export function parseVaultUrl(vault: Vault, code: string): string {
-  return `${vault.app}/#${vault.type}?_authCode=${btoa(code)}`
+  return `${vault.app}/#/${vault.type}?_authCode=${btoa(code)}`
 }
