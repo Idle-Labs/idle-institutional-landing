@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     siteName: 'Idle Institutional',
     images: [
       {
-        url: '/logos/idle-og.png',
+        url: '/logos/idle-full-og.png',
       },
       {
-        url: '/logos/idle-full-og.png',
+        url: '/logos/idle-og.png',
       },
     ],
   },
