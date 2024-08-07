@@ -19,8 +19,7 @@ import {
   useState,
 } from 'react'
 import CustomInput from './input'
-import { encrypt } from '../libs/crypto'
-import { CODE_LENGTH } from '../libs/access'
+import { getVaultUrl, VAULT_CODE_LENGTH } from '../libs/vaults'
 
 interface CustomModalParams {
   isOpen: boolean
@@ -29,6 +28,9 @@ interface CustomModalParams {
 
 export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
   const [code, setCode] = useState(new Map())
+  const [status, setStatus] = useState<'success' | 'error' | 'default'>(
+    'default',
+  )
   const inputRefs: { [index: number]: RefObject<HTMLInputElement> } = {
     0: useRef<HTMLInputElement>(null),
     1: useRef<HTMLInputElement>(null),
@@ -38,17 +40,20 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
     5: useRef<HTMLInputElement>(null),
   }
 
+  // Code management
+
   const onCode = (event: ChangeEvent<HTMLInputElement>) =>
     (event.target.value = ('' + event.target.value).toUpperCase())
   const onFocus = (event: FocusEvent<HTMLInputElement, Element>) =>
     event.target.select()
   const updateCode = (event: ChangeEvent<HTMLInputElement>, index: number) => {
+    setStatus('default')
     const newCode = new Map(code)
     const value = event.target.value
 
     if (value) {
       newCode.set(index, value)
-      index < CODE_LENGTH - 1 && inputRefs[index + 1].current?.focus()
+      index < VAULT_CODE_LENGTH - 1 && inputRefs[index + 1].current?.focus()
     } else {
       newCode.delete(index)
       index > 0 && inputRefs[index - 1].current?.focus()
@@ -59,19 +64,27 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
   const resetCode = () => setCode(new Map())
   const resetFocus = () => inputRefs[0].current?.focus()
   const reset = () => {
+    setStatus('default')
     resetCode()
     resetFocus()
   }
   const isCodeValid = () =>
-    Array.from(code.values()).join('').length === CODE_LENGTH
+    Array.from(code.values()).join('').length === VAULT_CODE_LENGTH
   const submitCode = () => {
     if (!isCodeValid()) {
       return
     }
 
     const keyCode = Array.from(code.values()).join('')
-    const crypted = encrypt(keyCode, process.env.NEXT_PUBLIC_SECRET_KEY || '')
-    console.log('encrypt', crypted)
+    const url = getVaultUrl(keyCode, process.env.NEXT_PUBLIC_SECRET_KEY || '')
+
+    if (!url) {
+      setStatus('error')
+      return
+    }
+
+    setStatus('success')
+    setTimeout(() => (window.location.href = url), 1000)
   }
 
   // Lifecycle
@@ -82,7 +95,7 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
   return (
     <Modal
       isOpen={isOpen}
-      variant="dark"
+      variant={status}
       size="sm"
       onClose={onClose}
       onCloseComplete={reset}
@@ -105,12 +118,13 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
             Enter your invite code to gain early access
           </Text>
           <HStack spacing="10px" justifyContent="center">
-            {[...Array(CODE_LENGTH)].map((_, index) => (
+            {[...Array(VAULT_CODE_LENGTH)].map((_, index) => (
               <CustomInput
                 key={index}
                 inputRef={inputRefs[index]}
                 value={code.get(index)}
                 isDisabled={false}
+                status={status}
                 onInput={onCode}
                 onFocus={onFocus}
                 onChange={(e) => updateCode(e, index)}
@@ -119,7 +133,10 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
             ))}
           </HStack>
         </ModalBody>
-        <ModalFooter justifyContent="center">
+        <ModalFooter justifyContent="center" gap={2}>
+          <Button variant="outline" onClick={reset}>
+            Clear
+          </Button>
           <Button isDisabled={!isCodeValid()} onClick={submitCode}>
             Enter code
           </Button>

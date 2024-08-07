@@ -1,5 +1,5 @@
-import { extendTheme } from "@chakra-ui/react";
-import { openSans, sourceSans } from "./fonts";
+import { extendTheme } from '@chakra-ui/react'
+import { openSans, sourceSans } from './fonts'
 
 export const theme = extendTheme({
   config: {
@@ -14,10 +14,14 @@ export const theme = extendTheme({
     white: '#FFFFFF',
     dark: '#1B1E27',
     primary: '#1682FE',
+    green: '#4DE3B0',
+    greenDark: '#00AE8F',
+    red: '#D43B3B',
+    redDark: '#903030',
     bgWhite: {
       backgroundColor: 'white',
-      color: 'dark'
-    }
+      color: 'dark',
+    },
   },
   styles: {
     global: {
@@ -46,11 +50,21 @@ export const theme = extendTheme({
           color: 'gray.800',
           _hover: {
             bg: 'gray.200',
+            _disabled: {
+              bg: 'gray.200',
+            },
           },
-        }
+        },
+        outline: {
+          color: 'gray.200',
+          _hover: {
+            color: 'gray.800',
+            bg: 'white',
+          },
+        },
       },
       defaultProps: {
-        variant: 'neutral'
+        variant: 'neutral',
       },
       sizes: {
         xl: {
@@ -61,14 +75,24 @@ export const theme = extendTheme({
       },
     },
     Modal: {
+      baseStyle: {
+        dialog: {
+          bg: 'dark',
+          padding: '1rem 3rem',
+        },
+      },
       variants: {
-        dark: {
+        success: {
           dialog: {
-            bg: 'dark',
-            padding: '1rem 3rem'
+            outline: '5px solid var(--chakra-colors-green)',
           },
-        }
-      }
+        },
+        error: {
+          dialog: {
+            outline: '5px solid var(--chakra-colors-red)',
+          },
+        },
+      },
     },
     Input: {
       sizes: {
@@ -76,22 +100,42 @@ export const theme = extendTheme({
           field: {
             fontSize: '2rem',
             fontWeight: 'bold',
-            borderRadius: 'xl'
-          }
-        }
+            borderRadius: 'xl',
+          },
+        },
+      },
+      baseStyle: {
+        field: {
+          border: 0,
+          caretColor: 'transparent',
+        },
       },
       variants: {
-        dark: {
+        default: {
           field: {
             bg: 'grey',
-            border: 0,
-            caretColor: 'transparent',
             _focus: {
-              bg: 'primary'
-            }
-          }
-        }
-      }
-    }
+              bg: 'primary',
+            },
+          },
+        },
+        success: {
+          field: {
+            bg: 'greenDark',
+            _focus: {
+              bg: 'green',
+            },
+          },
+        },
+        error: {
+          field: {
+            bg: 'redDark',
+            _focus: {
+              bg: 'red',
+            },
+          },
+        },
+      },
+    },
   },
 })

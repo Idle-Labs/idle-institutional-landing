@@ -3,6 +3,7 @@ import { LegacyRef, Ref } from 'react'
 
 interface CustomInputParams extends InputProps {
   inputRef?: LegacyRef<HTMLInputElement>
+  status?: 'success' | 'error' | 'default'
 }
 
 export default function CustomInput({
@@ -12,11 +13,12 @@ export default function CustomInput({
   onChange,
   onKeyDown,
   isDisabled,
+  status,
   inputRef,
 }: CustomInputParams) {
   return (
     <Input
-      className="notSelection"
+      className="notSelection cursorPointer"
       ref={inputRef}
       isDisabled={isDisabled}
       value={value || ''}
@@ -24,7 +26,7 @@ export default function CustomInput({
       onChange={onChange}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
-      variant="dark"
+      variant={status}
       size="xl"
       textAlign="center"
       htmlSize={1}

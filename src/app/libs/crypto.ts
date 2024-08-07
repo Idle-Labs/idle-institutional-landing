@@ -1,29 +1,32 @@
-import { createHmac } from 'crypto'
+import CryptoJS from 'crypto-js'
 
 /**
- * Encrypt a string
- * @param toEncrypt - the value to encrypt
- * @param secretKey - the secret key to use
+ * Encrypt string
+ * @param toEncrypt - string to encrypt
+ * @param key - the secret key to use
  * @returns the string encrypted
  */
-export function encrypt(toEncrypt: string, secretKey: string): string {
-  const hmac = createHmac('sha256', secretKey)
-  hmac.update(toEncrypt)
-  return hmac.digest('hex')
+export function encrypt(toEncrypt: string, key: string): string {
+  return CryptoJS.AES.encrypt(toEncrypt, key).toString()
 }
 
 /**
- * Compare a value to a crypted value
- * @param toEncrypt - the value to encrypt
- * @param crypted - the value crypted
- * @param secretKey - the secret key
- * @returns true if the values are equal
+ * Decrypt string
+ * @param toDecrypt - string to decrypt
+ * @param key - the secret key to use
+ * @returns the string encrypted
  */
-export function compare(
-  toCompare: string,
-  crypted: string,
-  secretKey: string,
-): boolean {
-  const valueEncrypted = encrypt(toCompare, secretKey)
-  return valueEncrypted === crypted
+export function decrypt(toDecrypt: string, key: string): string {
+  return CryptoJS.AES.decrypt(toDecrypt, key).toString(CryptoJS.enc.Utf8)
+}
+
+/**
+ * Compare a string to an hash
+ * @param toCompare - the string to compare
+ * @param hash - the hash to compare
+ * @param key - the secret key to use
+ * @returns the comparison result
+ */
+export function compare(toCompare: string, hash: string, key: string): boolean {
+  return toCompare === decrypt(hash, key)
 }

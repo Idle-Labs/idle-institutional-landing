@@ -11,6 +11,10 @@
 }
 
 // Custom inputs
+.cursorPointer {
+    cursor: pointer;
+}
+
 .notSelection {
     &::selection {
         background-color: transparent;
