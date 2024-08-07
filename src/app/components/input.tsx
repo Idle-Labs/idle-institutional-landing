@@ -9,6 +9,7 @@ interface CustomInputParams extends InputProps {
 export default function CustomInput({
   value,
   onInput,
+  onPaste,
   onFocus,
   onChange,
   onKeyDown,
@@ -26,6 +27,7 @@ export default function CustomInput({
       onChange={onChange}
       onFocus={onFocus}
       onKeyDown={onKeyDown}
+      onPaste={onPaste}
       variant={status}
       size="xl"
       textAlign="center"

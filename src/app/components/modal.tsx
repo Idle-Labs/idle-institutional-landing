@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import {
   ChangeEvent,
+  ClipboardEvent,
   FocusEvent,
   RefObject,
   useEffect,
@@ -44,8 +45,31 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
 
   const onCode = (event: ChangeEvent<HTMLInputElement>) =>
     (event.target.value = ('' + event.target.value).toUpperCase())
+  const onPasteCode = (event: ClipboardEvent<HTMLInputElement>) => {
+    setStatus('default')
+    const pasted = event.clipboardData.getData('Text')
+
+    if (!pasted.length) {
+      return
+    }
+
+    const newCode = pasted.slice(0, VAULT_CODE_LENGTH).toUpperCase()
+    const newMap = new Map(Array.from(newCode).map((s, i) => [i, s]))
+    const toFocus =
+      newCode.length === VAULT_CODE_LENGTH ? newCode.length - 1 : newCode.length
+
+    setCode(newMap)
+    setFocus(toFocus)
+    event.preventDefault()
+  }
+
   const onFocus = (event: FocusEvent<HTMLInputElement, Element>) =>
     event.target.select()
+  const setFocus = (index: number) => {
+    const el = inputRefs[index]
+    el.current?.focus()
+    el.current?.select()
+  }
   const updateCode = (event: ChangeEvent<HTMLInputElement>, index: number) => {
     setStatus('default')
     const newCode = new Map(code)
@@ -127,6 +151,7 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
                 status={status}
                 onInput={onCode}
                 onFocus={onFocus}
+                onPaste={onPasteCode}
                 onChange={(e) => updateCode(e, index)}
                 onKeyDown={(e) => e.key === 'Enter' && submitCode()}
               ></CustomInput>

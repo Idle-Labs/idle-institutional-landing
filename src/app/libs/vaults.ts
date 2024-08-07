@@ -16,16 +16,16 @@ export const VAULTS: Vault[] = [
     app: '//credit.idle.finance',
     type: 'credit',
     codes: [
-      'U2FsdGVkX1/fSIC5nT6irnvye3vyCOO2X5/iI7Bng94=', // '6G8R7Q'
-      'U2FsdGVkX1/hwaqMR06cyZju7mRNETn2peIW93/SMFE=', // 'GSER6L'
-      'U2FsdGVkX19ZA87RC+0Y1YXiVniTATR2GQJPbgJtDeI=', // 'CDDA2X',
-      'U2FsdGVkX1+TrdE+Sn/ETXYGzuitzLD+Ii5ty+Z0JRk=', // 'S58PHT',
-      'U2FsdGVkX18CAVd7PGmHsaBBBJtKbI3MVzzaMH6WdNs=', // 'J2998A',
-      'U2FsdGVkX19HbdZkTSTTAoAFMcVi+smCTeJ4Tqd9tww=', // 'YM9Y7P',
-      'U2FsdGVkX181GFnCuP+BLERKr8AZQGg8XCe8P4ZIvjo=', // '66M55D',
-      'U2FsdGVkX1+94L1sS/RmGEDX/gIOB1YGr2BSPkYEqCg=', // 'ZG8S4A',
-      'U2FsdGVkX19G+XJ8Fbl1rapikR4ozCLFAT0idjaLaco=', // '3WSBSD',
-      'U2FsdGVkX18UO1jJwvO2hFFlv2lLF8xkmqE9efVklSA=', // 'P26JQ3',
+      'U2FsdGVkX1/fSIC5nT6irnvye3vyCOO2X5/iI7Bng94=',
+      'U2FsdGVkX1/hwaqMR06cyZju7mRNETn2peIW93/SMFE=',
+      'U2FsdGVkX19ZA87RC+0Y1YXiVniTATR2GQJPbgJtDeI=',
+      'U2FsdGVkX1+TrdE+Sn/ETXYGzuitzLD+Ii5ty+Z0JRk=',
+      'U2FsdGVkX18CAVd7PGmHsaBBBJtKbI3MVzzaMH6WdNs=',
+      'U2FsdGVkX19HbdZkTSTTAoAFMcVi+smCTeJ4Tqd9tww=',
+      'U2FsdGVkX181GFnCuP+BLERKr8AZQGg8XCe8P4ZIvjo=',
+      'U2FsdGVkX1+94L1sS/RmGEDX/gIOB1YGr2BSPkYEqCg=',
+      'U2FsdGVkX19G+XJ8Fbl1rapikR4ozCLFAT0idjaLaco=',
+      'U2FsdGVkX18UO1jJwvO2hFFlv2lLF8xkmqE9efVklSA=',
     ],
   },
 ]
