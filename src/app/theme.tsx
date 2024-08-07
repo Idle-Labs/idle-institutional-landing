@@ -13,6 +13,7 @@ export const theme = extendTheme({
   colors: {
     white: '#FFFFFF',
     dark: '#1B1E27',
+    primary: '#1682FE',
     bgWhite: {
       backgroundColor: 'white',
       color: 'dark'
@@ -59,5 +60,38 @@ export const theme = extendTheme({
         },
       },
     },
+    Modal: {
+      variants: {
+        dark: {
+          dialog: {
+            bg: 'dark',
+            padding: '1rem 3rem'
+          },
+        }
+      }
+    },
+    Input: {
+      sizes: {
+        xl: {
+          field: {
+            fontSize: '2rem',
+            fontWeight: 'bold',
+            borderRadius: 'xl'
+          }
+        }
+      },
+      variants: {
+        dark: {
+          field: {
+            bg: 'grey',
+            border: 0,
+            caretColor: 'transparent',
+            _focus: {
+              bg: 'primary'
+            }
+          }
+        }
+      }
+    }
   },
 })

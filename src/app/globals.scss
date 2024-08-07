@@ -9,3 +9,10 @@
         width: auto !important;
     }
 }
+
+// Custom inputs
+.notSelection {
+    &::selection {
+        background-color: transparent;
+    }
+}
