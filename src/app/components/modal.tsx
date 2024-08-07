@@ -41,6 +41,12 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
     5: useRef<HTMLInputElement>(null),
   }
 
+  // Lifecycle
+
+  useEffect(() => {
+    isOpen && setTimeout(() => reset(), 100)
+  }, [isOpen])
+
   // Code management
 
   const onCode = (event: ChangeEvent<HTMLInputElement>) =>
@@ -110,11 +116,6 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
     setStatus('success')
     setTimeout(() => (window.location.href = url), 1000)
   }
-
-  // Lifecycle
-  useEffect(() => {
-    isOpen && setTimeout(() => reset(), 100)
-  }, [isOpen])
 
   return (
     <Modal

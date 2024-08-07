@@ -37,13 +37,8 @@ export const VAULTS: Vault[] = [
  * @returns the url to redirect the user
  */
 export function getVaultUrl(code: string, key: string): string | undefined {
-  let hash
-  const vault = VAULTS.find((v) => {
-    hash = v.codes.find((c) => compare(code, c, key))
-    return !!hash
-  })
-
-  return vault && hash ? parseVaultUrl(vault, hash) : undefined
+  const vault = VAULTS.find((v) => v.codes.find((c) => compare(code, c, key)))
+  return vault ? parseVaultUrl(vault, key) : undefined
 }
 
 /**
@@ -52,6 +47,6 @@ export function getVaultUrl(code: string, key: string): string | undefined {
  * @param hash - the hash
  * @returns the url of the vault
  */
-export function parseVaultUrl(vault: Vault, hash: string): string {
-  return `${vault.app}/#${vault.type}?_hash=${btoa(hash)}`
+export function parseVaultUrl(vault: Vault, code: string): string {
+  return `${vault.app}/#${vault.type}?_authCode=${btoa(code)}`
 }
