@@ -17,6 +17,8 @@ export const metadata: Metadata = {
     siteName: 'Idle Institutional',
     images: [
       {
+        width: '1200',
+        height: '630',
         url: '/logos/idle-full-og.png',
       },
     ],
