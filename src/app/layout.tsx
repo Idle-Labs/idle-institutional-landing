@@ -23,6 +23,19 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: 'summary',
+    title: 'Idle Institutional',
+    description:
+      'Modernizing credit markets to bring speed, programmability, and compliance advantages of blockchain tokenization.',
+    images: [
+      {
+        width: '1200',
+        height: '630',
+        url: '/logos/idle-full-og.png',
+      },
+    ],
+  },
 }
 
 export default function RootLayout({
