@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && touch ./dist/.nojekyll",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && touch ./dist/.nojekyll && echo 'institutional.idle.finance\nwww.institutional.idle.finance' > dist/CNAME;gh-pages -b gh-pages -d dist -t true --remote origin"
+    "deploy": "npm run build && echo 'institutional.idle.finance\nwww.institutional.idle.finance' > dist/CNAME;gh-pages -b gh-pages -d dist -t true --remote origin"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
