@@ -141,7 +141,7 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
             Early Access
           </Heading>
           <Text fontSize="lg" textAlign="center" mb="3" color="grey">
-            Enter your invite code to gain early access
+            Enter your invite code to access the app
           </Text>
           <HStack spacing="10px" justifyContent="center" paddingX={2}>
             {[...Array(VAULT_CODE_LENGTH)].map((_, index) => (
@@ -161,7 +161,7 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
           </HStack>
           <HStack justifyContent={'center'} mt={3}>
             <Text fontSize="lg" textAlign="center" color="grey">
-              Don&apos;t have the code?
+              Don&apos;t have a code?
             </Text>
             <Link
               fontSize={'lg'}
