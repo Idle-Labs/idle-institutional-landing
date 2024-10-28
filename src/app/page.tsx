@@ -47,7 +47,7 @@ export default function Home() {
 
           <Button
             as="a"
-            href="https://discord.com/invite/mpySAJp"
+            href="https://tally.so/r/mYY210"
             target="_blank"
             size="lg"
           >

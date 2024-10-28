@@ -9,6 +9,7 @@ import {
   Heading,
   Text,
   Button,
+  Link,
 } from '@chakra-ui/react'
 import {
   ChangeEvent,
@@ -142,7 +143,7 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
           <Text fontSize="lg" textAlign="center" mb="3" color="grey">
             Enter your invite code to gain early access
           </Text>
-          <HStack spacing="10px" justifyContent="center">
+          <HStack spacing="10px" justifyContent="center" paddingX={2}>
             {[...Array(VAULT_CODE_LENGTH)].map((_, index) => (
               <CustomInput
                 key={index}
@@ -157,6 +158,20 @@ export default function CustomModal({ isOpen, onClose }: CustomModalParams) {
                 onKeyDown={(e) => e.key === 'Enter' && submitCode()}
               ></CustomInput>
             ))}
+          </HStack>
+          <HStack justifyContent={'center'} mt={3}>
+            <Text fontSize="lg" textAlign="center" color="grey">
+              Don&apos;t have the code?
+            </Text>
+            <Link
+              fontSize={'lg'}
+              target="_blank"
+              href="https://tally.so/r/mYY210"
+              fontWeight={'bold'}
+              color={'primary'}
+            >
+              Request one
+            </Link>
           </HStack>
         </ModalBody>
         <ModalFooter justifyContent="center" gap={2}>

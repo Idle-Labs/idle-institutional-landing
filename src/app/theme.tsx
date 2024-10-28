@@ -78,7 +78,7 @@ export const theme = extendTheme({
       baseStyle: {
         dialog: {
           bg: 'dark',
-          padding: '1rem 3rem',
+          padding: '1rem',
         },
       },
       variants: {
