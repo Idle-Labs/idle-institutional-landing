@@ -72,26 +72,33 @@ export default function Home() {
 
         <Box>
           <Text fontSize="small">Trusted by</Text>
-          <Wrap spacing={10} align="center">
+          <Wrap spacing={[5, 10]} align="center">
             <WrapItem>
               <Image
                 src="/logos/rockaway.svg"
                 alt="Rockaway"
-                height={['25px', '30px', '50px']}
+                height={['20px', '30px', '30px', '50px']}
               />
             </WrapItem>
             <WrapItem>
               <Image
-                src="/logos/fasanara.svg"
+                src="/logos/fasanara-digital.svg"
                 alt="Fasanara"
-                height={['25px', '30px', '50px']}
+                height={['20px', '30px', '30px', '50px']}
+              />
+            </WrapItem>
+            <WrapItem>
+              <Image
+                src="/logos/falconX.svg"
+                alt="FalconX"
+                height={['15px', '15px', '20px', '40px']}
               />
             </WrapItem>
             <WrapItem>
               <Image
                 src="/logos/maven.svg"
                 alt="Maven"
-                height={['50px', '60px', '100px']}
+                height={['60px', '90px', '100px', '130px']}
               />
             </WrapItem>
           </Wrap>
